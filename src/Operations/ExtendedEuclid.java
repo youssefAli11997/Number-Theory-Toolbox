@@ -18,6 +18,6 @@ public class ExtendedEuclid {
 	}
 	
 	public static void main (String [] args) {
-		System.out.println(moduleInverse(13, 15));
+		System.out.println("The Module Inverse of 13 mod 15 is "  + moduleInverse(13, 15) +  "\nAs 13 * " + moduleInverse(13, 15) + " mod 15 = 1");
 	}
 }
