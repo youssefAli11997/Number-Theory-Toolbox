@@ -1,4 +1,4 @@
-package Operations;
+package Algorithms;
 
 public class ExtendedEuclid {
 	private static int x = 0 , y = 0 , d = 0;

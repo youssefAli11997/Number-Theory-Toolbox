@@ -1,10 +1,10 @@
-package Operations;
+package Algorithms;
 
-public class Add implements Operation{
-	private final static char REPRESENTATION = '+';
+public class Multiply  implements Operation{
+	private final static char REPRESENTATION = '*';
 	@Override
 	public int execute(int element1, int element2) {
-		return element1 + element2;
+		return element1 * element2;
 	}
 
 	@Override
@@ -14,7 +14,7 @@ public class Add implements Operation{
 
 	@Override
 	public Operation clone() {
-		return new Add();
+		return new Multiply();
 	}
 
 }

@@ -1,4 +1,4 @@
-package Operations;
+package Algorithms;
 
 import java.math.BigInteger;
 
@@ -18,13 +18,12 @@ public class ModularExponentiation {
         switch (methodIndex){
             case 2:  return memoryEfficient();
             case 3:  return rightToLeftBinary();
-            case 4:  return leftToRightBinary();
+            case 4:  return rightToLeftBinary2();
             default: return straightforward();
         }
     }
 
     private BigInteger straightforward(){
-        System.out.println("sf");
         if(n.equals(BigInteger.ONE)){
             return BigInteger.ZERO;
         }
@@ -38,7 +37,6 @@ public class ModularExponentiation {
     }
 
     private BigInteger memoryEfficient(){
-        System.out.println("me");
         if(n.equals(BigInteger.ONE)){
             return BigInteger.ZERO;
         }
@@ -52,7 +50,6 @@ public class ModularExponentiation {
     }
 
     private BigInteger rightToLeftBinary(){
-        System.out.println("rl");
         if(n.equals(BigInteger.ONE)){
             return BigInteger.ZERO;
         }
@@ -60,7 +57,6 @@ public class ModularExponentiation {
         BigInteger newBase = a.mod(n);
         BigInteger tempB = new BigInteger(b.toString());
         while(tempB.max(BigInteger.ZERO).equals(tempB) && !tempB.equals(BigInteger.ZERO)){
-            System.out.println(answer);
             if (tempB.mod(BigInteger.valueOf(2)).equals(BigInteger.ONE)) {
                 answer = (answer.multiply(newBase)).mod(n);
             }
@@ -70,7 +66,24 @@ public class ModularExponentiation {
         return answer;
     }
 
-    private BigInteger leftToRightBinary(){
+    private BigInteger rightToLeftBinary2(){
+        if(n.equals(BigInteger.ONE)){
+            return BigInteger.ZERO;
+        }
+        BigInteger answer = BigInteger.ONE;
+        BigInteger newBase = a.mod(n);
+        BigInteger tempB = new BigInteger(b.toString());
+        while(tempB.max(BigInteger.ZERO).equals(tempB) && !tempB.equals(BigInteger.ZERO)){
+            if (tempB.mod(BigInteger.valueOf(2)).equals(BigInteger.ONE)) {
+                answer = (answer.multiply(newBase));
+            }
+            tempB = tempB.shiftRight(1);
+            newBase = (newBase.multiply(newBase));
+        }
+        return answer.mod(n);
+    }
+
+    /*private BigInteger leftToRightBinary(){
         System.out.println("---------------\nlr");
         if(n.equals(BigInteger.ONE)){
             return BigInteger.ZERO;
@@ -91,7 +104,7 @@ public class ModularExponentiation {
             newBase = (newBase.multiply(newBase)).mod(n);
         }
         return answer;
-    }
+    }*/
 
     public static void main(String[] args){
         ModularExponentiation me = new ModularExponentiation("3","11","55");

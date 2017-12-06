@@ -1,4 +1,4 @@
-package Operations;
+package Algorithms;
 
 public class Subtract implements Operation{
 	private final static char REPRESENTATION = '-';

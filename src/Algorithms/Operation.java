@@ -1,4 +1,4 @@
-package Operations;
+package Algorithms;
 
 public interface Operation {
 	public int execute(int element1 , int element2);
