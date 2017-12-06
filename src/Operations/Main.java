@@ -17,5 +17,6 @@ public class Main {
 		for(Integer x : mapping)
 			System.out.println(x);
 		System.out.println(CRT.deMap(mapping, mi_s));
+		System.out.println(CRT.execute(973, 678, 1813, '+'));
 	}
 }
