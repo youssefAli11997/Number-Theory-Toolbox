@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CRT {
-	private static List <Operation> supportedOperations ;
-	public CRT() {
+	static {
 		initSupportedOperations();
 	}
-	private void initSupportedOperations() {
+	private static List <Operation> supportedOperations ;
+	private static void initSupportedOperations() {
 		supportedOperations = new ArrayList<>();
 		supportedOperations.add(new Add());
 		supportedOperations.add(new Subtract());
@@ -25,7 +25,7 @@ public class CRT {
 		return finalResult ;
 	}
 	
-	private static int deMap(List<Integer> result, List<Integer> mi_s) {
+	public static int deMap(List<Integer> result, List<Integer> mi_s) {
 		int M = 1 ;
 		for(Integer mi : mi_s) {
 			M *= mi;
@@ -44,7 +44,7 @@ public class CRT {
 		}
 		return finalResult % M;
 	}
-	private static List<Integer> getMapping(int number1, List<Integer> mi_s) {
+	public static List<Integer> getMapping(int number1, List<Integer> mi_s) {
 		List<Integer> mapped = new ArrayList<>();
 		for(int i = 0 ; i < mi_s.size() ; i ++)
 			mapped.add(number1 % mi_s.get(i));
