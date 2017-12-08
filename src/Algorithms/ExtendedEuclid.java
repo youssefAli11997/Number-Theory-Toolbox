@@ -8,7 +8,7 @@ public class ExtendedEuclid {
 		if (b.intValue() == 0) { x = new BigInteger("1"); y = new BigInteger("0"); d = new BigInteger(a.toString()); return; }
 		extendedEcuildean(new BigInteger(b.toString()), a.mod(b));
 		BigInteger x1 = y ;
-		BigInteger y1 = x.subtract(a.divide(b).multiply(y)) ;
+		BigInteger y1 = x.subtract((a.divide(b)).multiply(y)) ;
 		x = x1;
 		y = y1;
 		return ;
