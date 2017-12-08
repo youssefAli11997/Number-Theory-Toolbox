@@ -1,10 +1,12 @@
 package Algorithms;
 
+import java.math.BigInteger;
+
 public class Subtract implements Operation{
 	private final static char REPRESENTATION = '-';
 	@Override
-	public int execute(int element1, int element2) {
-		return element1-element2;
+	public BigInteger execute(BigInteger element1, BigInteger element2) {
+		return element1.subtract(element2);
 	}
 
 	@Override

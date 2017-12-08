@@ -1,23 +1,27 @@
 package Algorithms;
 
+import java.math.BigInteger;
+
 public class ExtendedEuclid {
-	private static int x = 0 , y = 0 , d = 0;
-	public static void extendedEcuildean(int a , int b) {
-		if (b == 0) { x = 1; y = 0; d = a; return; }
-		extendedEcuildean(b, a%b);
-		int x1 = y ;
-		int y1 = x - (a /b) *y ;
+	private static BigInteger x = new BigInteger("0") , y = new BigInteger("0") , d =new BigInteger("0");
+	public static void extendedEcuildean(BigInteger a , BigInteger b) {
+		if (b.intValue() == 0) { x = new BigInteger("1"); y = new BigInteger("0"); d = new BigInteger(a.toString()); return; }
+		extendedEcuildean(new BigInteger(b.toString()), a.mod(b));
+		BigInteger x1 = y ;
+		BigInteger y1 = x.subtract(a.divide(b).multiply(y)) ;
 		x = x1;
 		y = y1;
 		return ;
 	}
 	
-	public static int moduleInverse(int a , int n) {
+	public static BigInteger moduleInverse(BigInteger a , BigInteger n) {
 		extendedEcuildean(a, n);
 		return x ;
 	}
 	
 	public static void main (String [] args) {
-		System.out.println("The Module Inverse of 13 mod 15 is "  + moduleInverse(13, 15) +  "\nAs 13 * " + moduleInverse(13, 15) + " mod 15 = 1");
+		BigInteger a = new BigInteger("4");
+		BigInteger n = new BigInteger("15");
+		System.out.println("The Module Inverse of " + a + " mod " + n +" is "  + moduleInverse(a, n) +  "\nAs " + a + " * " + moduleInverse(a, n) + " mod " + n + " = 1");
 	}
 }
